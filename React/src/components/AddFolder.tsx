@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Box, Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material';
+import {  Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material';
 import { observer } from 'mobx-react';
 import folderStore from '../stores/FolderStore'; 
 

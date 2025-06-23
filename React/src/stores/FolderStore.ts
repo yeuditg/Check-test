@@ -1,10 +1,13 @@
 import { makeAutoObservable} from "mobx";
 import axios from "axios";
 import { toJS } from "mobx";
+import { folder } from "../types/folder";
+
+
 
 class FolderStore {
-  folders = [];
-  foldersCurrentUsers = [];
+  folders: folder[] = [];
+  foldersCurrentUsers: folder[]=[];
   isLoading = false;
   error:any = null;
 
@@ -22,7 +25,7 @@ class FolderStore {
       return;
     }
     try {
-      const response = await axios.get("https://localhost:7213/api/Folder/by-user", {
+      const response = await axios.get("https://localhost:5138/api/Folder/by-user", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -41,7 +44,7 @@ class FolderStore {
     this.isLoading = true;
     this.error = null;
     try {
-      const response = await axios.get("https://localhost:7213/api/Folder", {
+      const response = await axios.get("https://localhost:5138/api/Folder", {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
@@ -63,7 +66,7 @@ class FolderStore {
     this.isLoading = true;
     this.error = null;
     try {
-      const response = await axios.post("https://localhost:7213/api/Folder", folderData, {
+      const response = await axios.post("https://localhost:5138/api/Folder", folderData, {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },

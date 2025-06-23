@@ -1,6 +1,4 @@
 import { makeAutoObservable} from "mobx";
-import { Subject } from "../types/subject";
-import { Class } from "../types/class";
 import { MyFile } from "../types/myFile";
 import axios from "axios";
 

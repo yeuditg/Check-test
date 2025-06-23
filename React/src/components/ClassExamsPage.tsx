@@ -2702,7 +2702,6 @@ const ClassExamsPage: React.FC = observer(() => {
   const [statusFilter, setStatusFilter] = useState<"all" | "checked" | "unchecked" | "analyzing">("all")
 
   // Analysis states - simplified without dialog
-  const [analysisResults, setAnalysisResults] = useState<StudentTestFeedback[]>([])
   const [selectedFiles, setSelectedFiles] = useState<string[]>([])
   const [snackbarOpen, setSnackbarOpen] = useState(false)
   const [snackbarMessage, setSnackbarMessage] = useState("")
@@ -3271,7 +3270,7 @@ console.log("Analysis response:", response.data)
                   <ToggleButtonGroup
                     value={viewMode}
                     exclusive
-                    onChange={(e, newMode) => newMode && setViewMode(newMode)}
+                    onChange={(_, newMode) => newMode && setViewMode(newMode)}
                     size="small"
                   >
                     <ToggleButton value="grid">

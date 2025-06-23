@@ -4,26 +4,26 @@ import {
   Upload,
   BarChart3,
   Clock,
-  Shield,
-  BookOpen,
-  Award,
   Zap,
   Star,
   ArrowRight,
   FileText,
   Target,
-  TrendingUp,
   User,
   Sparkles,
   Brain,
-  Eye,
   Rocket,
   Globe,
   Play
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const FloatingElement = ({ children, delay = 0 }) => {
+type FloatingElementProps = {
+  children: React.ReactNode;
+  delay?: number;
+};
+
+const FloatingElement = ({ children, delay = 0 }: FloatingElementProps) => {
   const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
@@ -45,7 +45,7 @@ const FloatingElement = ({ children, delay = 0 }) => {
 };
 
 export default function TestCheckerHome() {
-  const [scrollY, setScrollY] = useState(0);
+  const [_, setScrollY] = useState(0);
 const navigate=useNavigate();
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -465,7 +465,7 @@ const navigate=useNavigate();
   };
 
   // Add CSS animations via style tag
-  useEffect(()=> {
+  useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
       @keyframes pulse {
@@ -496,24 +496,26 @@ const navigate=useNavigate();
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   return (
-    <div style={styles.container}>
+    <div style={styles.container as React.CSSProperties}>
       {/* Background Elements */}
-      <div style={styles.backgroundElements}>
-        <div style={styles.bgOrb1}></div>
-        <div style={styles.bgOrb2}></div>
-        <div style={styles.bgOrb3}></div>
+      <div style={styles.backgroundElements as React.CSSProperties}>
+        <div style={styles.bgOrb1 as React.CSSProperties}></div>
+        <div style={styles.bgOrb2 as React.CSSProperties}></div>
+        <div style={styles.bgOrb3 as React.CSSProperties}></div>
       </div>
 
       {/* Header */}
-      <header style={styles.header}>
+      <header style={styles.header as React.CSSProperties}>
         <div style={styles.headerContent}>
           <FloatingElement>
             <div style={styles.logo}>
-              <div style={styles.logoIcon} className="hover-scale">
+              <div style={styles.logoIcon as React.CSSProperties} className="hover-scale">
                 <Brain size={32} color="white" />
               </div>
               <div>
@@ -525,11 +527,11 @@ const navigate=useNavigate();
 
           <FloatingElement delay={200}>
             <div style={styles.navButtons}>
-              <button onClick={()=>navigate(`/home/login`)} style={styles.loginBtn} className="hover-scale hover-glow">
+              <button onClick={()=>navigate(`/login`)} style={styles.loginBtn} className="hover-scale hover-glow">
                 <User size={18} />
                 התחברות
               </button>
-              <button onClick={() => navigate(`/home/signup`)} style={styles.signupBtn} className="hover-scale hover-glow">
+              <button onClick={() => navigate(`/signup`)} style={styles.signupBtn} className="hover-scale hover-glow">
                 <Rocket size={18} />
                 הרשמה
               </button>
@@ -539,7 +541,7 @@ const navigate=useNavigate();
       </header>
 
       {/* Hero Section */}
-      <section style={styles.hero}>
+      <section style={styles.hero as React.CSSProperties}>
         <FloatingElement>
           <div style={styles.badge}>
             <Sparkles size={16} />
@@ -566,8 +568,8 @@ const navigate=useNavigate();
         </FloatingElement>
 
         <FloatingElement delay={600}>
-          <div style={styles.ctaButtons} className="sm-flex-row">
-            <button style={styles.primaryBtn} className="hover-scale hover-glow">
+          <div style={styles.ctaButtons as React.CSSProperties} className="sm-flex-row">
+            <button style={styles.primaryBtn as React.CSSProperties} className="hover-scale hover-glow">
               <Rocket size={20} />
               התחל עכשיו בחינם
               <ArrowRight size={20} />
@@ -591,7 +593,7 @@ const navigate=useNavigate();
               { value: "99.8%", label: "דיוק בבדיקה", icon: <Target size={24} />, gradient: "linear-gradient(45deg, #f472b6, #fb923c)" },
               { value: "90%", label: "חיסכון בזמן", icon: <Clock size={24} />, gradient: "linear-gradient(45deg, #fb923c, #fbbf24)" },
             ].map(({ value, label, icon, gradient }, i) => (
-              <div key={i} style={styles.statCard} className="hover-scale hover-shadow">
+              <div key={i} style={styles.statCard as React.CSSProperties} className="hover-scale hover-shadow">
                 <div style={{ ...styles.statIcon, background: gradient }} className="hover-rotate">
                   {icon}
                 </div>
@@ -606,10 +608,10 @@ const navigate=useNavigate();
       </section>
 
       {/* Features Section */}
-      <section style={styles.features}>
+      <section style={styles.features as React.CSSProperties}>
         <div style={styles.featuresContainer}>
           <FloatingElement>
-            <div style={styles.featuresHeader}>
+            <div style={styles.featuresHeader as React.CSSProperties}>
               <h3 style={styles.featuresTitle}>
                 למה <span style={styles.gradientText}>TestChecker Pro</span>?
               </h3>
@@ -647,7 +649,7 @@ const navigate=useNavigate();
               },
             ].map(({ icon, title, description, features, gradient, iconGradient }, i) => (
               <FloatingElement key={i} delay={i * 200}>
-                <div style={styles.featureCard} className="hover-scale hover-glow">
+                <div style={styles.featureCard as React.CSSProperties} className="hover-scale hover-glow">
                   <div style={{ ...styles.featureIcon, background: iconGradient }} className="hover-rotate">
                     {icon}
                   </div>
@@ -678,9 +680,9 @@ const navigate=useNavigate();
       </section>
 
       {/* CTA Section */}
-      <section style={styles.cta}>
+      <section style={styles.cta as React.CSSProperties}>
         <FloatingElement>
-          <div style={styles.ctaContainer}>
+          <div style={styles.ctaContainer as React.CSSProperties}>
             <div style={styles.ctaCard}>
               <div style={styles.stars}>
                 {[...Array(5)].map((_, i) => (
@@ -696,8 +698,8 @@ const navigate=useNavigate();
                 הצטרפו לאלפי מורים שכבר חוסכים שעות כל שבוע
               </p>
               
-              <div style={styles.ctaButtons2} className="sm-flex-row">
-                <button style={styles.primaryBtn} className="hover-scale hover-glow">
+              <div style={styles.ctaButtons2 as React.CSSProperties} className="sm-flex-row">
+                <button style={styles.primaryBtn as React.CSSProperties} className="hover-scale hover-glow">
                   <Zap size={20} />
                   התחל ניסיון חינם
                 </button>
@@ -713,7 +715,7 @@ const navigate=useNavigate();
       </section>
 
       {/* Footer */}
-      <footer style={styles.footer}>
+      <footer style={styles.footer as React.CSSProperties}>
         <div>
           <p style={styles.footerText}>
             &copy; {new Date().getFullYear()} TestChecker Pro. כל הזכויות שמורות.

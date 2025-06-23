@@ -1,85 +1,3 @@
-// import { useRef, useState } from "react";
-// import Button from '@mui/material/Button';
-// import SendIcon from '@mui/icons-material/Send';
-// import { Box, Modal, TextField, Typography } from "@mui/material";
-// import axios from "axios";
-// import { useNavigate } from "react-router-dom";
-
-// const style = {
-//   position: 'absolute',
-//   top: '50%',
-//   left: '50%',
-//   transform: 'translate(-50%, -50%)',
-//   width: 400,
-//   background: 'linear-gradient(50deg, #40E0D0 50%,  #D3D3D3 80%)',
-//   border: '3px solid #40E0D0 ',
-//   boxShadow: 24,
-//   borderRadius: '16px',
-//   p: 4,
-// };
-
-// const Login = () => {
-//   const emailRef = useRef<HTMLInputElement>(null);
-//   const passwordRef = useRef<HTMLInputElement>(null);
-//   const [clicked, setClicked] = useState(false);
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-
-//     try {
-//       const res = await axios.post('https://localhost:7213/api/auth/login', {
-//         email: emailRef.current?.value,
-//         password: passwordRef.current?.value
-//       });
-
-//       sessionStorage.setItem('token', res.data.token);
-//       sessionStorage.setItem('teacher_email', JSON.stringify(res.data.user));
-//       console.log("Token saved to session storage:", res.data.token);
-//       console.log("Email saved to session storage:", res.data.user.email); 
-//       console.log("נכנסת בהצלחה!");
-
-
-//       // const teacherEmailData = sessionStorage.getItem('teacher_email');
-//       // const currentUserId = teacherEmailData ? JSON.parse(teacherEmailData).id : null;
-//       // const response = await axios.get(`https://localhost:7213/api/File/${currentUserId}`);
-      
-//      // navigate('/folders');
-//     } catch (e: any) {
-//       if (e.response?.status === 401) {
-//         alert('Invalid credentials');
-//       }
-//       console.error(e);
-//     }
-//   }
-
-//   return (
-//     <>
-//       <Button onClick={() => { setClicked(true) }} variant="outlined">Login</Button>
-//       {clicked &&
-//         <Modal
-//           open={clicked}
-//           onClose={() => { setClicked(false) }}
-//           aria-labelledby="modal-modal-title"
-//           aria-describedby="modal-modal-description"
-//         >
-//           <Box sx={style}>
-//             <Typography id="modal-modal-title" variant="h6" component="h2">
-//               <form onSubmit={handleSubmit}>
-//                 <TextField type="text" fullWidth label="Email" variant="outlined" inputRef={emailRef} />
-//                 <TextField type="password" fullWidth label="Password" variant="outlined" inputRef={passwordRef} />
-//                 <Button type='submit' variant="contained" endIcon={<SendIcon />}>
-//                   Send
-//                 </Button>
-//               </form>
-//             </Typography>
-//           </Box>
-//         </Modal>
-//       }
-//     </>
-//   );
-// }
-// export default Login;
 import { useRef, useState } from "react";
 import { 
   Button, 
@@ -128,7 +46,7 @@ const Login: React.FC<LoginProps> = ({ onSwitchToSignup }) => {
     setLoading(true);
 
     try {
-      const res = await axios.post('https://localhost:7213/api/auth/login', {
+      const res = await axios.post('https://localhost:7213/api/Auth/login', {
         email: emailRef.current?.value,
         password: passwordRef.current?.value
       });
@@ -136,7 +54,7 @@ const Login: React.FC<LoginProps> = ({ onSwitchToSignup }) => {
       sessionStorage.setItem('token', res.data.token);
       sessionStorage.setItem('teacher_email', JSON.stringify(res.data.user));
       console.log("נכנסת בהצלחה!");
-      navigate('/subjects')
+      navigate('/app/subjects')
       setClicked(false);
       // navigate('/folders');
     } catch (e: any) {

@@ -1,6 +1,3 @@
-
-
-
 import { useContext, useState } from "react";
 import { 
   Button, 
@@ -21,7 +18,6 @@ import {
   VisibilityOff, 
   Email,
   Close,
-  School,
   Person,
   Phone,
   Home,
@@ -163,7 +159,7 @@ const LogUp: React.FC<SignUpProps> = ({ onSwitchToLogin }) => {
 
 
       setClicked(false);
-      navigate('/subjects')
+      navigate('/app/subjects')
 
       
     } catch (e: any) {
