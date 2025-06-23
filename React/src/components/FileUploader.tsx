@@ -27,7 +27,7 @@
 // //     for (const file of files) {
 // //       try {
 // //         // שלב 1: קבלת Presigned URL
-// //         const response = await axios.get(`https://localhost:7213/api/upload/presigned-url`, {
+// //         const response = await axios.get(`https://check-test-api.onrender.com/api/upload/presigned-url`, {
 // //           params: { fileName: file.name, contentType: file.type }
 // //         });
 
@@ -57,7 +57,7 @@
 // //           content: ''
 // //         };
 
-// //         await axios.post('https://localhost:7213/api/File', newFile, {
+// //         await axios.post('https://check-test-api.onrender.com/api/File', newFile, {
 // //           headers: { Authorization: `Bearer ${token}` }
 // //         });
 
@@ -152,7 +152,7 @@
 //     for (const file of files) {
 //       try {
 //         console.log(file)
-//         const response = await axios.get(`https://localhost:7213/api/upload/presigned-url`, {
+//         const response = await axios.get(`https://check-test-api.onrender.com/api/upload/presigned-url`, {
 //           params: { fileName: file.name, contentType: file.type }
 //         });
 //         console.log(response)
@@ -181,7 +181,7 @@
 //         };
 //         console.log(newFile)
 //         console.log(token)
-//         await axios.post('https://localhost:7213/api/File', newFile, {
+//         await axios.post('https://check-test-api.onrender.com/api/File', newFile, {
 //           headers: { Authorization: `Bearer ${token}` }
 //         });
 
@@ -339,7 +339,7 @@ const FileUploader = () => {
 
     for (const file of files) {
       try {
-        const response = await axios.get(`https://localhost:7213/api/upload/presigned-url`, {
+        const response = await axios.get(`https://check-test-api.onrender.com/api/upload/presigned-url`, {
           params: { fileName: file.name, contentType: file.type },
         })
 
@@ -365,7 +365,7 @@ const FileUploader = () => {
           content: "",
         }
 
-        await axios.post("https://localhost:7213/api/File", newFile, {
+        await axios.post("https://check-test-api.onrender.com/api/File", newFile, {
           headers: { Authorization: `Bearer ${token}` },
         })
 

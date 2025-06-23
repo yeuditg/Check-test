@@ -46,7 +46,7 @@ const Login: React.FC<LoginProps> = ({ onSwitchToSignup }) => {
     setLoading(true);
 
     try {
-      const res = await axios.post('https://localhost:7213/api/Auth/login', {
+      const res = await axios.post('https://check-test-api.onrender.com/api/Auth/login', {
         email: emailRef.current?.value,
         password: passwordRef.current?.value
       });

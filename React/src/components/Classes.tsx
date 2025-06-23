@@ -36,7 +36,7 @@
 //         }
 
 //         try {
-//             const response = await axios.get(`https://localhost:7213/api/Subject/${subjectId}/classes`);
+//             const response = await axios.get(`https://check-test-api.onrender.com/api/Subject/${subjectId}/classes`);
 //             const classesData: Class[] = Array.isArray(response.data) ? response.data : [];
 //             setClasses(classesData);
 //         } catch (error) {
@@ -59,7 +59,7 @@
 //         }
 
 //         try {
-//             const response = await axios.post(`https://localhost:7213/api/Subject/${subjectId}/classes`, { name: newClassName });
+//             const response = await axios.post(`https://check-test-api.onrender.com/api/Subject/${subjectId}/classes`, { name: newClassName });
 //             setClasses(prevClasses => [...prevClasses, { id: response.data.id, name: newClassName }]);
 //             setNewClassName("");
 //             setShowNewDialog(false);
@@ -71,7 +71,7 @@
 
 //     const handleDeleteClass = async (classId: string) => {
 //         try {
-//             await axios.delete(`https://localhost:7213/api/Class/${classId}`);
+//             await axios.delete(`https://check-test-api.onrender.com/api/Class/${classId}`);
 //             setClasses(prevClasses => prevClasses.filter(c => c.id !== classId));
 //         } catch (error) {
 //             console.error("Error deleting class:", error);
@@ -87,7 +87,7 @@
 
 //         try {
 //             const updatedClass = { ...classToUpdate, name: updateClassName };
-//             await axios.put(`https://localhost:7213/api/Class/${classToUpdate.id}`, updatedClass);
+//             await axios.put(`https://check-test-api.onrender.com/api/Class/${classToUpdate.id}`, updatedClass);
 //             setClasses(prevClasses => prevClasses.map(c => (c.id === classToUpdate.id ? updatedClass : c)));
 //             setUpdateClassName("");
 //             setShowUpdateDialog(false);
@@ -284,7 +284,7 @@ export default function Classes() {
     }
 
     try {
-      const response = await axios.get(`https://localhost:7213/api/Subject/${subjectId}/classes`)
+      const response = await axios.get(`https://check-test-api.onrender.com/api/Subject/${subjectId}/classes`)
       const classesData: ClassType[] = Array.isArray(response.data) ? response.data : []
       setClasses(classesData)
     } catch (error) {
@@ -307,7 +307,7 @@ export default function Classes() {
     }
 
     try {
-      const response = await axios.post(`https://localhost:7213/api/Subject/${subjectId}/classes`, {
+      const response = await axios.post(`https://check-test-api.onrender.com/api/Subject/${subjectId}/classes`, {
         name: newClassName,
       })
       setClasses((prevClasses) => [...prevClasses, { id: response.data.id, name: newClassName }])
@@ -321,7 +321,7 @@ export default function Classes() {
 
   const handleDeleteClass = async (classId: string) => {
     try {
-      await axios.delete(`https://localhost:7213/api/Class/${classId}`)
+      await axios.delete(`https://check-test-api.onrender.com/api/Class/${classId}`)
       setClasses((prevClasses) => prevClasses.filter((c) => String(c.id) !== classId))
     } catch (error) {
       console.error("Error deleting class:", error)
@@ -337,7 +337,7 @@ export default function Classes() {
 
     try {
       const updatedClass = { ...classToUpdate, name: updateClassName }
-      await axios.put(`https://localhost:7213/api/Class/${classToUpdate.id}`, updatedClass)
+      await axios.put(`https://check-test-api.onrender.com/api/Class/${classToUpdate.id}`, updatedClass)
       setClasses((prevClasses) => prevClasses.map((c) => (c.id === classToUpdate.id ? updatedClass : c)))
       setUpdateClassName("")
       setShowUpdateDialog(false)

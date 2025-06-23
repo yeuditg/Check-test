@@ -14,7 +14,7 @@ teacherFiles:MyFile[] = [];
           const teacherEmailData = sessionStorage.getItem('teacher_email');
           const currentUserId = teacherEmailData ? JSON.parse(teacherEmailData).id : null;
       
-          const response = await axios.get(`https://localhost:7213/api/File/userId/${currentUserId}`);
+          const response = await axios.get(`https://check-test-api.onrender.com/api/File/userId/${currentUserId}`);
           console.log(response.data);
           
           if (!response) {

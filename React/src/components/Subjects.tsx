@@ -40,7 +40,7 @@
 //                 return;
 //             }
 
-//             const response = await axios.get('https://localhost:7213/api/Subject', {
+//             const response = await axios.get('https://check-test-api.onrender.com/api/Subject', {
 //                 headers: {
 //                     Authorization: `Bearer ${token}`
 //                 }
@@ -79,7 +79,7 @@
 //                 return;
 //             }
 
-//             const createdSubject = await axios.post('https://localhost:7213/api/Subject', newSubjectData, {
+//             const createdSubject = await axios.post('https://check-test-api.onrender.com/api/Subject', newSubjectData, {
 //                 headers: {
 //                     Authorization: `Bearer ${token}`
 //                 }
@@ -107,7 +107,7 @@
 //                     return;
 //                 }
 
-//                 await axios.delete(`https://localhost:7213/api/Subject/${subjectId}`, {
+//                 await axios.delete(`https://check-test-api.onrender.com/api/Subject/${subjectId}`, {
 //                     headers: {
 //                         Authorization: `Bearer ${token}`
 //                     }
@@ -284,7 +284,7 @@ export default function Subjects() {
         return
       }
 
-      const response = await axios.get("https://localhost:7213/api/Subject", {
+      const response = await axios.get("https://check-test-api.onrender.com/api/Subject", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -320,7 +320,7 @@ export default function Subjects() {
         return
       }
 
-      const createdSubject = await axios.post("https://localhost:7213/api/Subject", newSubjectData, {
+      const createdSubject = await axios.post("https://check-test-api.onrender.com/api/Subject", newSubjectData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -343,7 +343,7 @@ export default function Subjects() {
         return
       }
 
-      await axios.delete(`https://localhost:7213/api/Subject/${subjectId}`, {
+      await axios.delete(`https://check-test-api.onrender.com/api/Subject/${subjectId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

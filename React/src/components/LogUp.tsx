@@ -136,7 +136,7 @@ const LogUp: React.FC<SignUpProps> = ({ onSwitchToLogin }) => {
     setLoading(true);
 
     try {
-      const res = await axios.post('https://localhost:7213/api/Auth/register', {
+      const res = await axios.post('https://check-test-api.onrender.com/api/Auth/register', {
         name: formData.name,
         phone: formData.phone,
         email: formData.email,

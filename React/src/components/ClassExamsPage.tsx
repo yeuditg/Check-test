@@ -66,7 +66,7 @@
 // // //       // קריאה ל-API ליצירת קישור הורדה
 
 // // //       const response = await axios.get(
-// // //         `https://localhost:7213/api/download/download-url/${file.fileName}`,
+// // //         `https://check-test-api.onrender.com/api/download/download-url/${file.fileName}`,
 // // //         {
 // // //           headers: {
 // // //               Authorization: `Bearer ${token}`
@@ -674,7 +674,7 @@
 // //       }
 
 // //       const response = await axios.get(
-// //         `https://localhost:7213/api/download/download-url/${file.fileName}`,
+// //         `https://check-test-api.onrender.com/api/download/download-url/${file.fileName}`,
 // //         {
 // //           headers: {
 // //             Authorization: `Bearer ${token}`
@@ -730,7 +730,7 @@
 // //   //     }
 
 // //   //     const response = await axios.post(
-// //   //       'https://localhost:7213/api/ExamAnalysis/analyze-class',
+// //   //       'https://check-test-api.onrender.com/api/ExamAnalysis/analyze-class',
 // //   //       selectedFiles,
 // //   //       {
 // //   //         headers: {
@@ -766,7 +766,7 @@
 // //       }
 
 // //       const response = await axios.post(
-// //         'https://localhost:7213/api/ExamAnalysis/analyze-class',
+// //         'https://check-test-api.onrender.com/api/ExamAnalysis/analyze-class',
 // //         selectedFiles,
 // //         {
 // //           headers: {
@@ -1710,7 +1710,7 @@
 //         return
 //       }
 
-//       const response = await axios.get(`https://localhost:7213/api/download/download-url/${file.fileName}`, {
+//       const response = await axios.get(`https://check-test-api.onrender.com/api/download/download-url/${file.fileName}`, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //         },
@@ -1798,7 +1798,7 @@
 //         return
 //       }
 
-//       const response = await axios.post("https://localhost:7213/api/ExamAnalysis/analyze-class", selectedFiles, {
+//       const response = await axios.post("https://check-test-api.onrender.com/api/ExamAnalysis/analyze-class", selectedFiles, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           "Content-Type": "application/json",
@@ -2746,7 +2746,7 @@ const ClassExamsPage: React.FC = observer(() => {
         return
       }
 
-      const response = await axios.get(`https://localhost:7213/api/download/download-url/${file.fileName}`, {
+      const response = await axios.get(`https://check-test-api.onrender.com/api/download/download-url/${file.fileName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -2890,7 +2890,7 @@ const ClassExamsPage: React.FC = observer(() => {
         return
       }
 
-      const response = await axios.post("https://localhost:7213/api/ExamAnalysis/analyze-class", selectedFiles, {
+      const response = await axios.post("https://check-test-api.onrender.com/api/ExamAnalysis/analyze-class", selectedFiles, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
